@@ -1,7 +1,7 @@
 import { getStoredCart } from "../../Utils/fakeDB";
 
 export const productAndCartData = async () => {
-    const productData = await fetch('products.json');
+    const productData = await fetch('products.json')
     const products = await productData.json()
     const savedCart = getStoredCart();
     let cartArray = []
@@ -12,5 +12,5 @@ export const productAndCartData = async () => {
             cartArray.push(foundProduct)
         }
     }
-    return cartArray;
+    return {cartArray, products};
 }
